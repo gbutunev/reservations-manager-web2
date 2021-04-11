@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Add a new city</h2>
+
+<form action="/Cities/Add" method="post">
+    <div>
+        Name: <input type="text" name="name" />
+    </div>
+    <input type="submit" value="Add" />
+</form>

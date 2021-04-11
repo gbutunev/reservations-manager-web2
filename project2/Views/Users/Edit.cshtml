@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Edit user</h2>
+
+<form action="/Users/Edit" method="post">
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td><input type="number" name="id" value="@ViewData["id"]" /></td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="username" value="@ViewData["username"]" /></td>
+        </tr>
+        <tr>
+            <td>First name:</td>
+            <td><input type="text" name="firstName" value="@ViewData["firstName"]" /></td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td><input type="text" name="lastName" value="@ViewData["lastName"]" /></td>
+        </tr>
+        <tr>
+            <td>Is admin:</td>
+            @*<td><input type="text" name="admin" value="@ViewData["admin"]" /></td>*@
+            <td>
+                <select name="admin">
+                    <option value="False">No</option>
+                    <option value="True">Yes</option>
+                </select>
+            </td>
+        </tr>
+
+    </table>
+    <input type="hidden" name="password" value="@ViewData["password"]" />
+    <input type="submit" value="Apply" />
+    <a href="/Users/Index">Cancel</a>
+</form>
+

@@ -1,0 +1,129 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #414141;
+    margin: 0;
+}
+
+.theBody {
+    font-family: Roboto;
+    color: #EFEFEF;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #ca3e47;
+    margin: 0;
+    padding: 10px;
+    font-family: Lato;
+}
+
+.menu {
+    background-color: #313131;
+    font-family: Raleway;
+}
+
+.menu-items {
+    display: inline-block;
+    list-style: none;
+    display: inline-block;
+}
+
+.menu-a {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+    .menu-a:hover {
+        color: #111111;
+        background-color: #ca3e47;
+    }
+
+#headTitle {
+    margin: 0;
+    display: inline-block;
+    vertical-align: super;
+}
+
+#welcome {
+    display: inline-block;
+    text-align: center;
+    float: right
+}
+
+.listingTable {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.tableList {
+    border: 1px solid white;
+}
+
+.reservation {
+    border: 1px solid #505050;
+    background-color: #505050;
+    border-radius: 20px;
+    box-shadow: 3px 10px 15px 0px rgba(0,0,0,0.3);
+    margin-bottom: 50px;
+    padding: 50px;
+}
+
+.restaurantName {
+    font-family: Lato;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+    vertical-align: super
+}
+
+#resid {
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+
+.butt {
+    color: #ca3e47;
+    margin-right: 20px;
+}
+
+    .butt:hover {
+        color: #FFFFFF;
+    }
+
+.reservationForm {
+    display: inline-block;
+}
+
+#res {
+    display: inline-block;
+}
+
+#restaurants {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+#2{
+    padding:10px;
+}

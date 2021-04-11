@@ -1,0 +1,70 @@
+﻿@using project2.Entities
+@{
+    User loggedUser = Session["loggedUser"] == null ? null : (User)Session["loggedUser"];
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Izrezzo</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <h1 id="headTitle">Izrezzo</h1>
+        <div id="welcome">
+            @if (loggedUser == null)
+            {
+                <a href="/Home/Login">Please, login</a>
+            }
+            else
+            {
+                @loggedUser.Username
+            }
+        </div>
+    </div>
+    <div class="menu">
+        <ul>
+            <li class="menu-items"><a href="/Home/Index" class="menu-a">Home</a></li>
+
+            <!--if logged in:-->
+            @if (loggedUser != null && !loggedUser.isAdmin)
+            {
+                <li class="menu-items"><a href="/Client/Restaurants" class="menu-a">All restaurants</a></li>
+                <li class="menu-items"><a href="/Client/CreateReservation" class="menu-a">Make a reservation</a></li>
+                <li class="menu-items"><a href="/Client/MyReservations" class="menu-a">My reservations</a></li>
+            }
+
+            <!--if admin-->
+            @if (loggedUser != null && loggedUser.isAdmin)
+            {
+                <li class="menu-items"><a href="/Restaurants/Index" class="menu-a">Restaurants</a></li>
+                <li class="menu-items"><a href="/Cities/Index" class="menu-a">Cities</a></li>
+                <li class="menu-items"><a href="/Users/Index" class="menu-a">Users</a></li>
+                <li class="menu-items"><a href="/Client/AllReservations" class="menu-a">Reservations</a></li>
+            }
+
+            @if (loggedUser == null)
+            {
+                <!--if not logged in-->
+                <li class="menu-items"><a href="/Home/Login" class="menu-a">Login</a></li>
+                <!--eventualno-->
+                <li class="menu-items"><a href="/Home/Register" class="menu-a">Register</a></li>
+            }
+
+            @if (loggedUser != null)
+            {
+                <li class="menu-items"><a href="/Home/Logout" class="menu-a">Logout</a></li>
+            }
+
+        </ul>
+    </div>
+    <div class="theBody">
+        @RenderBody()
+    </div>
+</body>
+</html>

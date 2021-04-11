@@ -1,0 +1,22 @@
+﻿@using project2.Entities
+@using project2.Repositories
+@{RestaurantsRepository repo = new RestaurantsRepository();}
+@{
+    ViewBag.Title = "MyReservations";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>My Reservations</h2>
+
+@foreach (Reservation res in (List<Reservation>)ViewData["myReservations"])
+{
+    <div class="reservation">
+        <p class="restaurantName">@repo.GetById(res.RestaurantId).Name</p>
+        <p class="reservationItem">Date: @res.Date.Day / @res.Date.Month / @res.Date.Year</p>
+        <p class="reservationItem">Time: @res.Date.Hour.ToString():@(res.Date.Minute < 10 ? "0" + res.Date.Minute.ToString() : res.Date.Minute.ToString())</p>
+        <p class="reservationItem">Seats: @res.Seats</p>
+        <a class="butt" href="/Client/EditReservation?id=@res.Id">Edit</a>
+        <a class="butt" href="/Client/DeleteReservation?id=@res.Id">Delete</a>
+        <p id="resid">Reservation ID: @res.Id</p>
+    </div>
+}

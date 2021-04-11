@@ -1,0 +1,27 @@
+﻿@using project2.Entities
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>List of registered cities</h2>
+
+<table class="listingTable">
+    <tr>
+        <td>ID</td>
+        <td>City</td>
+    </tr>
+
+    @foreach (City c in (List<City>)ViewData["cities"])
+    {
+        <tr>
+            <td class="tableList">@c.Id</td>
+            <td class="tableList">@c.Name</td>
+            <td class="tableList"><a href="/Cities/Delete?id=@c.Id">Delete</a></td>
+        </tr>
+    }
+</table>
+
+<div>
+    <p><a href="/Cities/Add">Add a new city</a></p>
+</div>

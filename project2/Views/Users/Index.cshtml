@@ -1,0 +1,33 @@
+﻿@using project2.Entities
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Users</h2>
+
+<table class="listingTable">
+    <tr>
+        <td class="tableList">ID</td>
+        <td class="tableList">Username</td>
+        <td class="tableList">First name</td>
+        <td class="tableList">Last name</td>
+        <td class="tableList">Is admin</td>
+    </tr>
+
+    @foreach (var user in (List<User>)ViewData["users"])
+    {
+        <tr>
+            <td class="tableList">@user.Id</td>
+            <td class="tableList">@user.Username</td>
+            <td class="tableList">@user.FirstName</td>
+            <td class="tableList">@user.LastName</td>
+            <td class="tableList">@user.isAdmin</td>
+            <td><a href="/Users/Edit?id=@user.Id">Edit</a></td>
+            <td><a href="/Users/Delete?id=@user.Id">Delete</a></td>
+        </tr>
+    }
+</table>
+
+<div><a href="/Home/Register">New user</a></div>
+

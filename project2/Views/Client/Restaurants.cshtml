@@ -1,0 +1,28 @@
+﻿@using project2.Entities
+@using project2.Repositories
+@{
+    ViewBag.Title = "Restaurants";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>All Restaurants</h2>
+
+<table class="listingTable">
+    <tr>
+        <td class="tableList">No.</td>
+        <td class="tableList">Restaurant</td>
+        <td class="tableList">Total seats</td>
+    </tr>
+
+    @foreach (Restaurant res in (List<Restaurant>)ViewData["restaurants"])
+    {
+        <tr>
+            <td class="tableList">@res.Id</td>
+            <td class="tableList">@res.Name</td>
+            <td class="tableList">@res.Seats</td>
+        </tr>
+    }
+
+
+</table>
+

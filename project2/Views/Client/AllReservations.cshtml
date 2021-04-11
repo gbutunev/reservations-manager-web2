@@ -1,0 +1,36 @@
+﻿@using project2.Entities
+@using project2.Repositories
+@{ RestaurantsRepository resRepo = new RestaurantsRepository();
+    UsersRepository usrRepo = new UsersRepository();}
+@{
+    ViewBag.Title = "AllReservations";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>All registered reservations</h2>
+
+<table class="listingTable">
+    <tr>
+        <td class="tableList">Reservation ID</td>
+        <td class="tableList">User ID</td>
+        <td class="tableList">Username</td>
+        <td class="tableList">Restaurant ID</td>
+        <td class="tableList">Restaurant</td>
+        <td class="tableList">Seats</td>
+        <td class="tableList">Date & Time</td>
+    </tr>
+    @foreach (Reservation r in (List<Reservation>)ViewData["reservations"])
+    {
+        <tr>
+            <td class="tableList">@r.Id</td>
+            <td class="tableList">@r.UserId</td>
+            <td class="tableList">@usrRepo.GetById(r.UserId).Username</td>
+            <td class="tableList">@r.RestaurantId</td>
+            <td class="tableList">@resRepo.GetById(r.RestaurantId).Name</td>
+            <td class="tableList">@r.Seats</td>
+            <td class="tableList">@r.Date.ToString()</td>
+            <td class="tableList"><a href="/Client/DeleteReservation?id=@r.Id">Remove</a></td>
+        </tr>
+    }
+</table>
+

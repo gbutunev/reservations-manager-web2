@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "EditReservation";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Edit a reservation</h2>
+
+<form action="/Client/EditReservation" method="post">
+    <table>
+        <tr>
+            <td>Restaurant: </td>
+            <td>@ViewData["restaurant"]</td>
+        </tr>
+        <tr>
+            <td>Date: </td>
+            <td><input type="datetime" name="date" value="@ViewData["date"]" /></td>
+        </tr>
+        <tr>
+            <td>Seats</td>
+            <td><input type="number" name="seats" value="@ViewData["seats"]" /></td>
+        </tr>
+    </table>
+    <input type="hidden" name="restaurantId" value="@ViewData["restaurantId"]" />
+    <input type="hidden" name="id" value="@ViewData["id"]" />
+    <input type="submit" value="Apply" />
+</form>
+

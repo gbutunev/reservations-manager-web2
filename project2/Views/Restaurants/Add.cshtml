@@ -1,0 +1,43 @@
+﻿@using project2.Repositories
+@using project2.Entities
+@{ 
+    CitiesRepository repo = new CitiesRepository();
+}
+@*@{ CitiesRepository repo = new CitiesRepository();
+       List<City> cities = repo.GetAll();
+    }*@
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Add a restaurant</h2>
+<form action="/Restaurants/Add" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="name" /></td>
+        </tr>
+        <tr>
+            <td>Seats:</td>
+            <td><input type="number" name="seats" /></td>
+        </tr>
+        @*<tr>
+            <td>Location:</td>
+            <td><input type="text" name="location" /></td>
+        </tr>*@
+        <tr>
+            <td>Location:</td>
+            <td>
+                <select name="location">
+                    @foreach(City c in repo.GetAll())
+                    {
+                        <option value="@c.Name">@c.Name</option>
+                    }
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Add" />
+</form>
+

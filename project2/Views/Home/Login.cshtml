@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Login</h2>
+
+<form action="/Home/Login" method="post">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="username" value="@ViewData["username"]" /></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" /></td>
+        </tr>
+    </table>
+    <input type="submit" value="Login" />
+    <div>
+        @ViewData["loginError"]
+    </div>
+</form>
+

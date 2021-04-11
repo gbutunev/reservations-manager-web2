@@ -1,0 +1,52 @@
+﻿@using project2.Entities;
+@using project2.Repositories;
+@{
+    RestaurantsRepository repo = new RestaurantsRepository();
+}
+@{
+    ViewBag.Title = "CreateReservation";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Create a Reservation</h2>
+<div class="reservation" id="res">
+    <form action="/Client/CreateReservation" method="post">
+        <table>
+            @*<tr>
+                    <td>Time:</td>
+                    <td><input type="datetime" name="time" /></td>
+                </tr>*@
+            <tr>
+                <td>Date:</td>
+                <td><input type="date" name="date" /></td>
+            </tr>
+            <tr>
+                <td>Time:</td>
+                <td><input type="time" name="time" /></td>
+            </tr>
+            @*<tr>
+                    <td>Restaurant:</td>
+                    <td>
+                        <input type="text" name="restaurant" />
+                    </td>
+                </tr>*@
+            <tr>
+                <td>Restaurant:</td>
+                <td>
+                    <select name="restaurant">
+                        @foreach (Restaurant r in repo.GetAll())
+                        {
+                            <option value="@r.Name">@r.Name</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Seats:</td>
+                <td><input type="number" name="seats" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+
+</div>
